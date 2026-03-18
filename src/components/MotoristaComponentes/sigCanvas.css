@@ -1,0 +1,20 @@
+.signatureCanvas {
+  background-color: whitesmoke;
+  border: 5px solid black;
+  width: 50vw;
+  min-height: 20vh;
+  margin-bottom: 10px;
+}
+
+
+@media (max-width: 768px) {
+  /* estilos para celulares (e tablets pequenos) */
+.signatureCanvas {
+  background-color: whitesmoke;
+  border: 1px solid black;
+  width: 95vw;
+  min-height: 15vh;
+  margin-bottom: 15px;
+}
+  
+}
