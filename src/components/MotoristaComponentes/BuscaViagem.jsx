@@ -87,9 +87,11 @@ export const BuscaViagem = () => {
     const [listagem, setListagem] = useState('')
     const [verOpcao, setVerOpcao] = useState('none')
 
+    const [fotoCarga, setFotoCarga] = useState(null);
     const [fotoComprovante, setFotoComprovante] = useState(null);
     const [fotoID, setFotoID] = useState(null);
     const [assinatura, setAssinatura] = useState(null);
+    const [assMotorista, setAssMotorista] = useState(null)
     const [formaPgto, setFormaPgto] = useState('')
 
     const [sttsSpinner, setSttsSpinner] = useState(false)
@@ -105,16 +107,19 @@ export const BuscaViagem = () => {
             forma_pagamento: formaPgto,
             foto: item.fotoComprovante,
             destinatarioId: item.fotoID,
-            assinatura: assinatura
+            assinatura: assinatura,
+            assMotorista: assMotorista
         });
 
         const dadosParaEnviar = {
             cod_viagem: item.cod_viagem,
             carga: item.carga,
+            fotoCarga: fotoCarga,
             forma_pagamento: formaPgto,
             foto: fotoComprovante, // String Base64 vinda do CamOne,
             destinatarioId: fotoID,
-            assinatura: assinatura  // String Base64 vinda do Sing
+            assinatura: assinatura,  // String Base64 vinda do Sing
+            assMotorista: assMotorista
         };
 
         try {
@@ -221,6 +226,7 @@ export const BuscaViagem = () => {
                                                     <Box display='flex' flexDirection='column' justifyContent='space-around'
                                                         padding='10px 0px' gap='10px'
                                                     >
+                                                        <Card titulo='Comprovante de Pagamento ' onCapture={(img) => setFotoCarga(img)} />
 
                                                         <Card titulo='Comprovante de Pagamento ' onCapture={(img) => setFotoComprovante(img)} />
 
@@ -229,10 +235,20 @@ export const BuscaViagem = () => {
                                                         <Field.Root >
                                                             <Field.Label >
                                                                 <Heading fontSize='xl' padding='5px'
-                                                                >Assinatura Digital:</Heading>
+                                                                >Assinatura do Cliente:</Heading>
                                                                 <AiFillSignature size='25px' />
                                                             </Field.Label>
                                                             <Sing onSave={(sign) => setAssinatura(sign)} />
+
+                                                        </Field.Root>
+
+                                                        <Field.Root >
+                                                            <Field.Label >
+                                                                <Heading fontSize='xl' padding='5px'
+                                                                >Assinatura do Motorista:</Heading>
+                                                                <AiFillSignature size='25px' />
+                                                            </Field.Label>
+                                                            <Sing onSave={(sign) => setAssMotorista(sign)} />
 
                                                         </Field.Root>
 
