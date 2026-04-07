@@ -226,11 +226,11 @@ export const BuscaViagem = () => {
                                                     <Box display='flex' flexDirection='column' justifyContent='space-around'
                                                         padding='10px 0px' gap='10px'
                                                     >
-                                                        <Card titulo='Comprovante de Pagamento ' onCapture={(img) => setFotoCarga(img)} />
+                                                        <Card titulo='Documento da Carga' onCapture={(img) => setFotoCarga(img)} />
 
-                                                        <Card titulo='Comprovante de Pagamento ' onCapture={(img) => setFotoComprovante(img)} />
+                                                        <Card titulo='Comprovante de Pagamento' onCapture={(img) => setFotoComprovante(img)} />
 
-                                                        <Card titulo='Identificação do Destinatário ' onCapture={(img) => setFotoID(img)} />
+                                                        <Card titulo='Identificação do Destinatário' onCapture={(img) => setFotoID(img)} />
 
                                                         <Field.Root >
                                                             <Field.Label >
